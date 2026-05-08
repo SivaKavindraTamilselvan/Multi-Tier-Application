@@ -156,7 +156,7 @@ internal class Program
                             }
                             string message = inputCheck.MessageInputs(email);
                             INotification emailService = new EmailService();
-                            emailService.Send(message, user);
+                            emailService.Send(message, user,"Email");
                             break;
                         }
 
@@ -174,7 +174,7 @@ internal class Program
                             }
                             string message = inputCheck.MessageInputs(phone);
                             INotification smsService = new SMSService();
-                            smsService.Send(message, user);
+                            smsService.Send(message, user,"SMS");
                             break;
                         }
                     case 9:
