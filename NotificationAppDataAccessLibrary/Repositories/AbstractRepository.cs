@@ -8,38 +8,29 @@ public abstract class AbstractRepository<K,T> : IRepository<K,T> where T : class
 
     public T? Get(K key)
     {
-        if(items.ContainsKey(key))
-        {
-            return items[key];
-        }
-        return null;
+        return items.Where(x=>x.Key.Equals(key)).Select(x=>x.Value).FirstOrDefault();
     }
 
     public List<T>? GetAll()
     {
-        if(items.Count == 0)
-        {
-            return null;
-        }
-        var list = items.Values.ToList();
-        return list;
+        return items.Select(x=>x.Value).ToList();
     }
 
     public T? Update(K key,T item)
     {
-        if(!items.ContainsKey(key))
+        if(!items.Any(x => x.Key.Equals(key)))
         {
             return null;
         }
+
         items[key] = item;
         return item;
     }
 
     public T? Delete(K key)
     {
-        if(items.ContainsKey(key))
+        if(items.TryGetValue(key, out T? item))
         {
-            var item = items[key];
             items.Remove(key);
             return item;
         }

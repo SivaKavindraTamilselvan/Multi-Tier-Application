@@ -1,7 +1,7 @@
 using NotificationAppModelLibrary;
 namespace NotificationAppDataAccessLibrary.Repositories;
 
-public partial class UserRepository : AbstractRepository<int,User>
+public class UserRepository : AbstractRepository<int,User>
 {
     static int userId = 0;
     //override the create function
