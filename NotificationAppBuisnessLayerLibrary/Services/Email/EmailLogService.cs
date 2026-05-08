@@ -3,7 +3,7 @@ using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public partial class EmailService : INotification
+public partial class EmailService : NotificationService 
 {
     //log the message in the console
 

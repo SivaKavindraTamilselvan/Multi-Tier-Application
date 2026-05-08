@@ -7,7 +7,6 @@ public partial class UserService : IUserService
     public User? GetUserByEmail(string email)
     {
         var UserList = userRepo.GetAll();
-        //if no user found in the list
         if(UserList == null) return null;
         foreach (var item in UserList)
         {
@@ -21,21 +20,14 @@ public partial class UserService : IUserService
     public User? DeleteUserByEmail(string email)
     {
         var UserList = userRepo.GetAll();
-        //if no user found in the list
         if(UserList == null) return null;
         foreach (var item in UserList)
         {
             if (item.Email == email)
             {
-                var user = userRepo.Delete(item.userId);
-                //if no user found
-                if(user==null) return null;
-                Console.WriteLine("User Deleted Successfully ! Wait for the Email && SMS to be sent");
-                //notification services sent for deletion
-                string message = $"Successfully deleted your account with the details\nName : {item.Name}\nPhoneNumber : {item.PhoneNumber}\nEmail : {item.Email}\n\nThank You!";
-                emailService.Send(message, item,"Email");
-                smsService.Send(message, item,"SMS");
-                return item;
+                deletedUser = item;
+                DeleteDelegate();
+                return deletedUser;
             }
         }
         return null;

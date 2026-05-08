@@ -30,14 +30,8 @@ public partial class UserService : IUserService
         {
             if (item.PhoneNumber == phonenumber)
             {
-                var user = userRepo.Delete(item.userId);
-                //if no user found
-                if(user==null) return null;
-                Console.WriteLine("User Deleted Successfully ! Wait for the Email && SMS to be sent");
-                //sending the notification to the sms and email for deletion
-                string message = $"Successfully deleted your account with the details\nName : {item.Name}\nPhoneNumber : {item.PhoneNumber}\nEmail : {item.Email}\n\nThank You!";
-                emailService.Send(message, item,"Email");
-                smsService.Send(message, item,"SMS");
+                deletedUser = item;
+                DeleteDelegate();
                 deletedList.Add(item);
             }
         }

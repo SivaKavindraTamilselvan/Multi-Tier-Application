@@ -7,9 +7,13 @@ using NotificationAppBuisnessLayerLibrary.Delegates;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public abstract class NotificationService : INotification
+public abstract class NotificationService : INotificationSender
 {
-    IRepository<int,Notification> notificationRepo = new NotificationRepository();
+    protected readonly INotificationRepository notificationRepo;
+    public NotificationService(INotificationRepository repo)
+{
+    notificationRepo = repo;
+}
     MessageValidation validation = new MessageValidation();
     NotificationOperation? notificationOperation;
 
@@ -39,7 +43,7 @@ public abstract class NotificationService : INotification
     }
     public void ValidationOfMessage()
     {
-        validation.ValidateMessage(message,service);
+        MessageValidation.ValidateMessage(message,service);
     }
     public void SaveNotification()
     {

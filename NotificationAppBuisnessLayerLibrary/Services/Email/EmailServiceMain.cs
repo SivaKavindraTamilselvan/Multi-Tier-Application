@@ -37,6 +37,7 @@ public partial class EmailService : NotificationService
                 Body = message,
                 IsBodyHtml = true
             };
+
             smtp.Send(mail);
             
             status = "Sent";

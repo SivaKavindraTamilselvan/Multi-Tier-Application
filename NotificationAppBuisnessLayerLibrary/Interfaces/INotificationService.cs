@@ -3,9 +3,8 @@ namespace NotificationAppBuisnessLayerLibrary.Interfaces;
 
 public interface INotification
 {
-    void Send(string message,User user,string service);
-    private void Log(string message,User user)
-    {
-        Console.WriteLine($"Log: {message} for {user.Name}");
-    }
+    public void CreateNotification(Notification item);
+    public Notification? GetNotificationsById(int id);
+    public void PrintAllNotification();
+    public List<Notification> GetNotificationsByUserId(int id);
 }

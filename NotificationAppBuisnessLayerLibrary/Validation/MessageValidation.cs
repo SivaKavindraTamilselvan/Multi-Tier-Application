@@ -5,7 +5,7 @@ namespace NotificationAppBuisnessLayerLibrary.Validation;
 
 public class MessageValidation
 {
-    public void ValidateMessage(string message,string service)
+    public static bool ValidateMessage(string message,string service)
     {
         message = message.Trim();
         if(message.IsWhiteSpace())
@@ -20,5 +20,6 @@ public class MessageValidation
         {
             throw new MessageException("Message that needed to be sent via SMS should not be greater than 160");
         }
+        return true;
     }
 }

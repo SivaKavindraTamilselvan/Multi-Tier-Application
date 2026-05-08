@@ -11,7 +11,7 @@ public abstract class AbstractRepository<K,T> : IRepository<K,T> where T : class
         return items.Where(x=>x.Key.Equals(key)).Select(x=>x.Value).FirstOrDefault();
     }
 
-    public List<T>? GetAll()
+    public List<T> GetAll()
     {
         return items.Select(x=>x.Value).ToList();
     }
