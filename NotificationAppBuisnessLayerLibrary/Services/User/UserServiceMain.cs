@@ -55,8 +55,8 @@ public partial class UserService : IUserService
         Console.WriteLine("User Added Successfully. Wait until the Email && SMS is sent!!");
         //send the notification if the user is added through email and SMS
         string message = $"Successfully created an account with the details\n\nUserId : {createdUser.userId}\nName : {createdUser.Name}\nPhoneNumber : {createdUser.PhoneNumber}\nEmail : {createdUser.Email}\n\nThank You!";
-        emailService.Send(message, createdUser);
-        smsService.Send(message, createdUser);
+        emailService.Send(message, createdUser,"Email");
+        smsService.Send(message, createdUser,"SMS");
 
         return user;
     }

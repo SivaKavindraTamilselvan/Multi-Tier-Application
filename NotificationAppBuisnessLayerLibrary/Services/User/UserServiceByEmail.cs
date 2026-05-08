@@ -33,8 +33,8 @@ public partial class UserService : IUserService
                 Console.WriteLine("User Deleted Successfully ! Wait for the Email && SMS to be sent");
                 //notification services sent for deletion
                 string message = $"Successfully deleted your account with the details\nName : {item.Name}\nPhoneNumber : {item.PhoneNumber}\nEmail : {item.Email}\n\nThank You!";
-                emailService.Send(message, item);
-                smsService.Send(message, item);
+                emailService.Send(message, item,"Email");
+                smsService.Send(message, item,"SMS");
                 return item;
             }
         }

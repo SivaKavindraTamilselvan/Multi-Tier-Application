@@ -17,8 +17,8 @@ public partial class UserService : IUserService
         Console.WriteLine("User Deleted Successfully ! Wait for the Email && SMS to be sent");
         //notification services sent for deletion
         string message = $"Successfully deleted your account with the details\nName : {user.Name}\nPhoneNumber : {user.PhoneNumber}\nEmail : {user.Email}\n\nThank You!";
-        emailService.Send(message, user);
-        smsService.Send(message, user);
+        emailService.Send(message, user,"Email");
+        smsService.Send(message, user,"SMS");
         return user;
     }
     public User? UpdateUserById(int userId)
@@ -72,8 +72,8 @@ public partial class UserService : IUserService
             Console.WriteLine("User Updated Successfully. Wait for the Email && SMS to be sent!!");
             //notification services sent for updation
             string message = $"Successfully updated your account with the details\nName : {updatedUser.Name}\nPhoneNumber : {updatedUser.PhoneNumber}\nEmail : {updatedUser.Email}\n\nThank You!";
-            emailService.Send(message, updatedUser);
-            smsService.Send(message, updatedUser);
+            emailService.Send(message, updatedUser,"Email");
+            smsService.Send(message, updatedUser,"SMS");
         }
         return updatedUser;
     }
