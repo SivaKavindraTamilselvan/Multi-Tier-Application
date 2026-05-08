@@ -7,6 +7,7 @@ using NotificationAppDataAccessLibrary.Interfaces;
 using DotNetEnv;
 using System.Collections;
 using System.Reflection.Metadata;
+using NotificationAppPresentationLayer.ConsoleStatements;
 
 internal class Program
 {
@@ -23,23 +24,12 @@ internal class Program
         //used for inputs displaying to avoid repeated code
         InputsCheck inputCheck = new InputsCheck();
 
+        ConsoleStatementsClass consoleStatementsClass = new ConsoleStatementsClass();
+
         while (true)
         {
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("Enter 1 To Add User");
-            Console.WriteLine("Enter 2 To Get The User By Email");
-            Console.WriteLine("Enter 3 To Get The User By PhoneNumber");
-            Console.WriteLine("Enter 4 To Display All The Users");
-            Console.WriteLine("Enter 5 To Delete The User By Email");
-            Console.WriteLine("Enter 6 To Delete The User By PhoneNumber");
-            Console.WriteLine("Enter 7 To Deliver The Message To A User By Email");
-            Console.WriteLine("Enter 8 To Deliver The Message To A User By Phone Number");
-            Console.WriteLine("Enter 9 To Get User By Id");
-            Console.WriteLine("Enter 10 To Update User By Id");
-            Console.WriteLine("Enter 11 To Delete User By Id");
-            Console.WriteLine("Enter 0 To Quit The Loop");
-            Console.WriteLine("------------------------------------------------");
-
+            
+            consoleStatementsClass.InitailConsole();
             int typechoice;
 
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 11 || typechoice < 0)
@@ -48,15 +38,12 @@ internal class Program
             }
             try
             {
-
-
                 switch (typechoice)
                 {
                     //add user
                     case 1:
                         {
                             var user = userService.AddUser();
-
                             //this condition is applied if user registering with aldready registered email id
                             if (user == null) Console.WriteLine("User not added");
                             break;
