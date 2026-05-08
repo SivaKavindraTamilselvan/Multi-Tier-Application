@@ -10,6 +10,9 @@ public class NotificationRepository : AbstractRepository<int,Notification>
         item.notificationId = notificationId++;
         items.Add(notificationId,item);
         return item;
-
+    }
+    public List<Notification> GetNotificationByUserId(int userId)
+    {
+        return items.Where(x=>x.Value.userId == userId).Select(x=>x.Value).ToList();
     }
 }
