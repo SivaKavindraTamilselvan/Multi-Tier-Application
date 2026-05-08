@@ -3,10 +3,10 @@ using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public partial class SMSService : INotification
+public partial class SMSService : NotificationService
 {
     //log the information in console
-    private void Log(string message,User user)
+    public override void LogNotification()
     {
         Console.WriteLine("---------------------------------------------");
         Console.WriteLine("Logging the Information - SMS Service");

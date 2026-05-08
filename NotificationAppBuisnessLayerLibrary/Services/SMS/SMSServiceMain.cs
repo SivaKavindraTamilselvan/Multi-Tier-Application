@@ -4,18 +4,11 @@ using NotificationAppModelLibrary;
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
 //partial class imolemented to avoid long code
-public partial class SMSService : INotification
+public partial class SMSService : NotificationService
 {
-    private string status = "pending";
-    private DateTime? dateTime= null;
     //just implement console based message service
-    public void Send(string message,User user)
+    public override void SendNotification()
     {
-        if(!CheckValidation(user))
-        {
-            Console.WriteLine("Invalid User Details");
-            return;
-        }
        dateTime = DateTime.Now;
        Console.WriteLine("MessageService");
        Console.WriteLine("From - 944237XXXX");
@@ -24,6 +17,5 @@ public partial class SMSService : INotification
        Console.WriteLine($"Message - {message}");
        status = "sent";
        Console.WriteLine("SMS Sent Successfully");
-       Log(message,user);
     }
 }

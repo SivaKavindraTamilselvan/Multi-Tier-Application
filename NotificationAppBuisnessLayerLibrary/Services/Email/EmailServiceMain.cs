@@ -6,20 +6,13 @@ using NotificationAppModelLibrary;
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
 //partial class imolemented to avoid long code
-public partial class EmailService : INotification
+public partial class EmailService : NotificationService
 {
-    private string status = "pending";
-    private DateTime? dateTime= null;
     //real email it sent
-    public void Send(string message,User user)
+    public override void SendNotification()
     {
         try
         {
-            if(!CheckValidation(user))
-            {
-                Console.WriteLine("Invalid User Details");
-                return;
-            }
             //to get the data from env for security in version control
             string fromEmail = Environment.GetEnvironmentVariable("CompanyEmail") ?? "";
             string? fromName = Environment.GetEnvironmentVariable("CompanyName") ?? "";
@@ -45,9 +38,9 @@ public partial class EmailService : INotification
                 IsBodyHtml = true
             };
             smtp.Send(mail);
-            dateTime = DateTime.Now;
-
+            
             status = "Sent";
+            dateTime = DateTime.Now;
 
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine("Email Service");
@@ -59,6 +52,5 @@ public partial class EmailService : INotification
         {
             status = "Failed" + ex.Message;
         }
-        Log(message,user);
     }
 }
