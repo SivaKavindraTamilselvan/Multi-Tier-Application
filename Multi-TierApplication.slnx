@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="NotificationAppBuisnessLayerLibrary/NotificationAppBuisnessLayerLibrary.csproj" />
+  <Project Path="NotificationAppDataAccessLibrary/NotificationAppDataAccessLibrary.csproj" />
+  <Project Path="NotificationAppModelLibrary/NotificationAppModelLibrary.csproj" />
+  <Project Path="NotificationAppPresentationLayer/NotificationAppPresentationLayer.csproj" />
+</Solution>
