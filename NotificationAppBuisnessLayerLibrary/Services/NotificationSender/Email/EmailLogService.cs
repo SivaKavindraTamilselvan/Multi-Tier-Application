@@ -1,12 +1,7 @@
-using NotificationAppBuisnessLayerLibrary.Interfaces;
-using NotificationAppModelLibrary;
-
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public partial class EmailService : NotificationService 
+public partial class EmailService : NotificationSenderService 
 {
-    //log the message in the console
-
     public override void LogNotification()
     {
         Console.WriteLine("---------------------------------------------");

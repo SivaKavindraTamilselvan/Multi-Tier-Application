@@ -1,9 +1,10 @@
 ﻿using NotificationAppModelLibrary;
 using NotificationAppPresentationLayer.Role;
 using DotNetEnv;
+using NotificationAppBuisnessLayerLibrary.Interfaces;
+using NotificationAppBuisnessLayerLibrary.Services;
 using NotificationAppDataAccessLibrary.Interfaces;
 using NotificationAppDataAccessLibrary.Repositories;
-
 
 internal class Program
 {
@@ -11,11 +12,22 @@ internal class Program
     {
         Env.Load();
 
+        IRepository<int, User> userRepo = new UserRepository();
+        INotificationRepository notificationRepo = new NotificationRepository();
 
-        //display the company details from the models
+        INotificationSender email = new EmailService(notificationRepo);
+        INotificationSender sms = new SMSService(notificationRepo);
+
+        IUserService userService = new UserService(userRepo,email,sms);
+
+        INotificationService notificationService =
+            new NotificationService(notificationRepo, email, sms);
+
+        AdminRole adminRole = new AdminRole(userService, notificationService);
+        
         Company company = new Company();
         Console.WriteLine(company);
-        AdminRole adminRole = new AdminRole();
+
         while (true)
         {
 
@@ -24,7 +36,7 @@ internal class Program
             Console.WriteLine("Enter 2 For User");
             Console.WriteLine("------------------------------------------------");
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) && typechoice!=1 && typechoice !=2)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) && typechoice != 1 && typechoice != 2)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -47,7 +59,7 @@ internal class Program
                         }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

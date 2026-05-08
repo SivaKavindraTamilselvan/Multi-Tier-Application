@@ -3,10 +3,11 @@ using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-//partial class imolemented to avoid long code
-public partial class SMSService : NotificationService
+public partial class SMSService : NotificationSenderService
 {
-    //just implement console based message service
+    public SMSService(INotificationRepository repo) : base(repo)
+    {
+    }
     public override void SendNotification()
     {
        dateTime = DateTime.Now;

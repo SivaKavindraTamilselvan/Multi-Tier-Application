@@ -1,11 +1,9 @@
 using NotificationAppBuisnessLayerLibrary.Validation;
-using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayer.Inputs;
 
 public class InputsCheck
 {
-    //program.cs inputs and console.writeline is used
     public string EmailInputs()
     {
         string email = Console.ReadLine() ?? string.Empty;

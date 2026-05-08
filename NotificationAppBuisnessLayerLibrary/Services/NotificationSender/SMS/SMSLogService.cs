@@ -3,7 +3,7 @@ using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public partial class SMSService : NotificationService
+public partial class SMSService : NotificationSenderService
 {
     //log the information in console
     public override void LogNotification()

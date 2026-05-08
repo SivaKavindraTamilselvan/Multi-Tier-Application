@@ -7,7 +7,7 @@ public class NotificationRepository : AbstractRepository<int,Notification>,INoti
     static int notificationId = 0;
     public override Notification Create(Notification item)
     {
-        item.notificationId = notificationId++;
+        item.notificationId = ++notificationId;
         items.Add(notificationId,item);
         Console.WriteLine("jj");
         return item;

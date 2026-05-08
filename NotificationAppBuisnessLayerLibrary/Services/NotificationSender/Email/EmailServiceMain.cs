@@ -1,14 +1,13 @@
 using System.Net;
 using System.Net.Mail;
-using NotificationAppBuisnessLayerLibrary.Interfaces;
-using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-//partial class imolemented to avoid long code
-public partial class EmailService : NotificationService
+public partial class EmailService : NotificationSenderService
 {
-    //real email it sent
+    public EmailService(INotificationRepository repo) : base(repo)
+    {
+    }
     public override void SendNotification()
     {
         try
@@ -25,13 +24,13 @@ public partial class EmailService : NotificationService
 
             string? password = Environment.GetEnvironmentVariable("Password") ?? "";
 
-            var smtp = new SmtpClient("smtp.gmail.com",587)
+            var smtp = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential(from.Address,password),
+                Credentials = new NetworkCredential(from.Address, password),
                 EnableSsl = true
             };
 
-            var mail = new MailMessage(from,to)
+            var mail = new MailMessage(from, to)
             {
                 Subject = "Notification",
                 Body = message,
@@ -39,7 +38,7 @@ public partial class EmailService : NotificationService
             };
 
             smtp.Send(mail);
-            
+
             status = "Sent";
             dateTime = DateTime.Now;
 

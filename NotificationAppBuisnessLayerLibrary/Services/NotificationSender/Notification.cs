@@ -1,24 +1,21 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppModelLibrary;
 using NotificationAppBuisnessLayerLibrary.Validation;
-using NotificationAppDataAccessLibrary.Repositories;
-using NotificationAppDataAccessLibrary.Interfaces;
 using NotificationAppBuisnessLayerLibrary.Delegates;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public abstract class NotificationService : INotificationSender
+public abstract class NotificationSenderService : INotificationSender
 {
-    protected readonly INotificationRepository notificationRepo;
-    public NotificationService(INotificationRepository repo)
-{
-    notificationRepo = repo;
-}
-    MessageValidation validation = new MessageValidation();
+    private readonly INotificationRepository notificationRepo;
+    public NotificationSenderService(INotificationRepository _notificationRepo)
+    {
+        notificationRepo = _notificationRepo;
+    }
     NotificationOperation? notificationOperation;
 
     protected string message = "";
-    protected User user=null!;
+    protected User user = null!;
     protected string service = "";
 
     protected string? status;
@@ -36,23 +33,29 @@ public abstract class NotificationService : INotificationSender
 
         notificationOperation += ValidationOfMessage;
         notificationOperation += SendNotification;
-        notificationOperation += SaveNotification;
+        notificationOperation += Log;
         notificationOperation += LogNotification;
 
         notificationOperation?.Invoke();
     }
     public void ValidationOfMessage()
     {
-        MessageValidation.ValidateMessage(message,service);
+        MessageValidation.ValidateMessage(message, service);
     }
-    public void SaveNotification()
+
+    public void Log()
     {
-        Notification notification = new Notification();
-        notification.userId = user.userId;
-        notification.datetime = dateTime;
-        notification.message=message;
-        notification.service=service;
+        Notification notification = new Notification
+        {
+            userId = user.userId,
+            message = message,
+            service = service,
+            status = status,
+            datetime = DateTime.Now
+        };
+
         notificationRepo.Create(notification);
     }
+
     public abstract void LogNotification();
 }

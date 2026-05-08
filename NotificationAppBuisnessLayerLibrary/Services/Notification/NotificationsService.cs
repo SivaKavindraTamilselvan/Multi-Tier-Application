@@ -5,21 +5,29 @@ using NotificationAppModelLibrary;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
-public class NotificationClass : INotification
+public class NotificationService : INotificationService
 {
-    NotificationRepository notificationRepo = new NotificationRepository();
+    private readonly INotificationRepository notificationRepo;
+    private readonly INotificationSender email;
+    private readonly INotificationSender sms;
+    public NotificationService(INotificationRepository _notificationRepo,INotificationSender _email,INotificationSender _sms)
+    {
+        notificationRepo = _notificationRepo;
+        email = _email;
+        sms = _sms;
+    }
     public void SendNotificationToUsers(string message,User user,string service)
     {
         if(service == "Email")
         {
-            INotificationSender emailService = new EmailService();
-            emailService.Send(message,user,service);
+            //CreateNotification(message,user,service);
+            email.Send(message,user,service);
             Console.WriteLine("Wait Untill the Email Notification is Sent");
         }
         else if(service == "SMS")
         {
-            INotificationSender smsService = new SMSService();
-            smsService.Send(message,user,service);
+            //CreateNotification(message,user,service);
+            sms.Send(message,user,service);
             Console.WriteLine("Wait Untill the SMS Notification is Sent");
         }
         else
@@ -30,7 +38,6 @@ public class NotificationClass : INotification
     public void PrintAllNotification()
     {
         var NotificationList = notificationRepo.GetAll();
-        //if no user found in the list
         if(NotificationList.Count == 0)
         {
             Console.WriteLine("No User Found");
@@ -52,8 +59,13 @@ public class NotificationClass : INotification
         return notificationRepo.GetNotificationByUserId(id);
     }
 
-    public void CreateNotification(Notification item)
+    public void CreateNotification(string message,User user,string service)
     {
-        var notification =  notificationRepo.Create(item);
+        Notification notification = new Notification();
+        notification.userId = user.userId;
+        notification.datetime = DateTime.Now;
+        notification.message=message;
+        notification.service=service;
+        notificationRepo.Create(notification);
     }
 }

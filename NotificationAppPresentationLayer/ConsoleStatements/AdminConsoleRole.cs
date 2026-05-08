@@ -1,23 +1,19 @@
-using NotificationAppBuisnessLayerLibrary.Validation;
-using NotificationAppModelLibrary;
-using NotificationAppBuisnessLayerLibrary.Services;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
-using NotificationAppDataAccessLibrary.Interfaces;
-using DotNetEnv;
-using System.Collections;
-using System.Reflection.Metadata;
-using NotificationAppPresentationLayer.ConsoleStatements;
 
 namespace NotificationAppPresentationLayer.Role;
 
 public class AdminRole
 {
-
-    IUserService userService = new UserService();
-    NotificationClass notificationClass = new NotificationClass();
-    InputsCheck inputCheck = new InputsCheck();
-    AdminRoleConsole console = new AdminRoleConsole();
+    private readonly IUserService userService;
+    private readonly INotificationService notificationService;
+    private InputsCheck inputCheck = new InputsCheck();
+    private AdminRoleConsole console = new AdminRoleConsole();
+    public AdminRole(IUserService userService, INotificationService notificationService)
+    {
+        this.userService = userService;
+        this.notificationService = notificationService;
+    }
     public void AdminRoles()
     {
         while (true)
@@ -40,7 +36,7 @@ public class AdminRole
                         }
                     case 2:
                         {
-                            
+
                             string email = inputCheck.EmailInputs();
                             var user = userService.GetUserByEmail(email);
                             if (user == null)
@@ -48,13 +44,13 @@ public class AdminRole
                                 Console.WriteLine($"No User Found With Email Address {email}");
                                 break;
                             }
-                            string message = inputCheck.MessageInputs(email,"Email");
-                            notificationClass.SendNotificationToUsers(message, user, "Email");
+                            string message = inputCheck.MessageInputs(email, "Email");
+                            notificationService.SendNotificationToUsers(message, user, "Email");
                             break;
                         }
                     case 3:
                         {
-                            
+
                             string phone = inputCheck.PhoneNumberInputs();
                             var user = userService.GetUserByPhoneNumber(phone);
                             if (user == null)
@@ -62,8 +58,8 @@ public class AdminRole
                                 Console.WriteLine($"No User Found With Phone Number {phone}");
                                 break;
                             }
-                            string message = inputCheck.MessageInputs(phone,"SMS");
-                            notificationClass.SendNotificationToUsers(message, user, "SMS");
+                            string message = inputCheck.MessageInputs(phone, "SMS");
+                            notificationService.SendNotificationToUsers(message, user, "SMS");
                             break;
                         }
                     case 4:
@@ -176,7 +172,7 @@ public class AdminRole
                     case 12:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationClass.GetNotificationsById(userid);
+                            var notification = notificationService.GetNotificationsById(userid);
                             if (notification == null)
                             {
                                 Console.WriteLine("User not found");
@@ -188,7 +184,7 @@ public class AdminRole
                     case 13:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationClass.GetNotificationsByUserId(userid);
+                            var notification = notificationService.GetNotificationsByUserId(userid);
                             if (notification == null)
                             {
                                 Console.WriteLine("User not found");
@@ -199,7 +195,7 @@ public class AdminRole
                         }
                     case 14:
                         {
-                            notificationClass.PrintAllNotification();
+                            notificationService.PrintAllNotification();
                             break;
                         }
                     case 0:

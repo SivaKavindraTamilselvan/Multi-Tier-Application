@@ -9,10 +9,16 @@ namespace NotificationAppBuisnessLayerLibrary.Services;
 
 public partial class UserService : IUserService
 {
-    INotificationSender emailService = new EmailService();
-    INotificationSender smsService = new SMSService();
-    IRepository<int, User> userRepo = new UserRepository();
+    private readonly IRepository<int, User> userRepo;
+    private readonly INotificationSender emailService;
+    private readonly INotificationSender smsService;
 
+    public UserService(IRepository<int, User> repo,INotificationSender email,INotificationSender sms)
+    {
+        userRepo = repo;
+        emailService = email;
+        smsService = sms;
+    }
     public void PrintAllUsers()
     {
         var UserList = userRepo.GetAll();
