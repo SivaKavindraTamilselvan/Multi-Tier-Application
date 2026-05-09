@@ -28,7 +28,9 @@ public partial class UserService : IUserService
         }
         foreach (var item in UserList)
         {
+            Console.WriteLine("Information of the user");
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
 }

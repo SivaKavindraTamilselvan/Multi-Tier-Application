@@ -57,7 +57,7 @@ public partial class UserService : IUserService
         {
             return;
         }
-        string message = $"Successfully created an account with the details\n\nUserId : {createdUser.userId}\nName : {createdUser.Name}\nPhoneNumber : {createdUser.PhoneNumber}\nEmail : {createdUser.Email}\n\nThank You!";
+        string message = $"Successfully created an account with the details\nUserId : {createdUser.userId}\nName : {createdUser.Name}\nPhoneNumber : {createdUser.PhoneNumber}\nEmail : {createdUser.Email}\nThank You!";
         emailService.Send(message, createdUser, "Email");
         smsService.Send(message, createdUser, "SMS");
     }

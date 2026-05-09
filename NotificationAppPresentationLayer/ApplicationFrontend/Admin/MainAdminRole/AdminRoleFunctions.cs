@@ -17,7 +17,7 @@ public partial class AdminRole
     public void UpdateUser()
     {
         int userid = inputCheck.IdInputs();
-        var user = userService.DeleteUserById(userid);
+        var user = userService.UpdateUserById(userid);
         //display if no user with the id found
         if (user == null)
         {

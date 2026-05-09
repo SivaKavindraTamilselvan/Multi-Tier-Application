@@ -14,6 +14,7 @@ public partial class AdminGetRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Information of the user");
         Console.WriteLine(user);
     }
     public void GetUserByEmail()
@@ -27,6 +28,7 @@ public partial class AdminGetRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Information of the user");
         Console.WriteLine(user);
     }
     public void GetUserByPhoneNumber()
@@ -40,6 +42,7 @@ public partial class AdminGetRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Information of the user");
         Console.WriteLine(user);
     }
     public void GetAll()

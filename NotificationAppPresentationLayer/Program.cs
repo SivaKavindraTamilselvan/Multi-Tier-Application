@@ -26,7 +26,10 @@ internal class Program
         UserRole userRole = new UserRole(userService,notificationService);
         
         Company company = new Company();
+
+        Console.WriteLine("------------------------------------------------");
         Console.WriteLine(company);
+        Console.WriteLine("------------------------------------------------");
 
         HomePage homePage = new HomePage(adminRole,userRole);
         homePage.RoleSelection();

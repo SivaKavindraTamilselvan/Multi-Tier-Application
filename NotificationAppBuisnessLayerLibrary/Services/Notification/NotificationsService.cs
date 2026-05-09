@@ -44,6 +44,7 @@ public partial class NotificationService : INotificationService
         foreach (var item in notificationList)
         {
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
 }

@@ -20,7 +20,9 @@ public partial class NotificationService : INotificationService
         }
         foreach (var item in notification)
         {
+            Console.WriteLine("Notification Information");
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
 
@@ -33,7 +35,9 @@ public partial class NotificationService : INotificationService
         }
         foreach (var item in notification)
         {
+            Console.WriteLine("Notification Information");
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
     public void GetNotificationsByService(string service)
@@ -45,7 +49,9 @@ public partial class NotificationService : INotificationService
         }
         foreach (var item in notification)
         {
+            Console.WriteLine("Notification Information");
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
 }

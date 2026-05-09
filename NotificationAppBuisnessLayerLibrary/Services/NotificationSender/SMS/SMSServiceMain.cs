@@ -12,11 +12,12 @@ public partial class SMSService : NotificationSenderService
     {
        dateTime = DateTime.Now;
        Console.WriteLine("MessageService");
+       Console.WriteLine("Message Sent Successfully");
+       Console.WriteLine();
        Console.WriteLine("From - 944237XXXX");
        Console.WriteLine($"To - {user.PhoneNumber}");
        Console.WriteLine($"Date - {dateTime}");
        Console.WriteLine($"Message - {message}");
        status = "sent";
-       Console.WriteLine("SMS Sent Successfully");
     }
 }

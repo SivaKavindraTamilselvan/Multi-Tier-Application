@@ -17,6 +17,7 @@ public partial class AdminDeleteRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Information of deleted user");
         Console.WriteLine(user);
     }
     public void DeleteUserById()
@@ -28,6 +29,7 @@ public partial class AdminDeleteRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Information of deleted user");
         Console.WriteLine(user);
     }
     public void DeleteUserByPhoneNumber()
@@ -44,7 +46,9 @@ public partial class AdminDeleteRole
         Console.WriteLine("Deleted User List With Phone Number");
         foreach (var item in user)
         {
+            Console.WriteLine("Information of deleted user");
             Console.WriteLine(item);
+            Console.WriteLine();
         }
     }
 }

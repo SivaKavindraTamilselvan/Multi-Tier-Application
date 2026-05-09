@@ -61,7 +61,7 @@ public partial class UserService : IUserService
         {
             throw new UserNotFoundException();
         }
-        string message = $"Successfully updated your account with the details\nName : {updateUser.Name}\nPhoneNumber : {updateUser.PhoneNumber}\nEmail : {updateUser.Email}\n\nThank You!";
+        string message = $"Successfully updated your account with the details\nName : {updateUser.Name}\nPhoneNumber : {updateUser.PhoneNumber}\nEmail : {updateUser.Email}\nThank You!";
         emailService.Send(message, updateUser,"Email");
         smsService.Send(message, updateUser,"SMS");
     }
