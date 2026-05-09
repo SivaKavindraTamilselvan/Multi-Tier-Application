@@ -1,14 +1,15 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppBuisnessLayerLibrary.Services;
 
 namespace NotificationAppPresentationLayer.Application;
 
-public class UserRole
+public partial class UserRole
 {
     private readonly IUserService userService;
     private readonly INotificationService notificationService;
     private InputsCheck inputCheck = new InputsCheck();
-    private UserChoices console = new UserChoices();
+    private UserChoices userChoices = new UserChoices();
     public UserRole(IUserService userService, INotificationService notificationService)
     {
         this.userService = userService;
@@ -18,7 +19,7 @@ public class UserRole
     {
         while (true)
         {
-            console.DisplayUserChoices();
+            userChoices.DisplayUserChoices();
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
             {
@@ -30,38 +31,17 @@ public class UserRole
                 {
                     case 1:
                         {
-                            int userid = inputCheck.UserIdInputs();
-                            var user = userService.GetUserById(userid);
-                            if (user == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            notificationService.GetNotificationsByUserIdAndService(userid,"Email");
+                            GetNotificationsByUserId();
                             break;
                         }
                     case 2:
                         {
-                            int userid = inputCheck.UserIdInputs();
-                            var user = userService.GetUserById(userid);
-                            if (user == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            notificationService.GetNotificationsByUserIdAndService(userid,"SMS");
+                            GetNotificationsByUserIdAndService("Email");
                             break;
                         }
                     case 3:
                         {
-                            int userid = inputCheck.UserIdInputs();
-                            var user = userService.GetUserById(userid);
-                            if (user == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            notificationService.GetNotificationsByUserId(userid);
+                            GetNotificationsByUserIdAndService("SMS");
                             break;
                         }
                     case 0:
