@@ -20,8 +20,7 @@ internal class Program
 
         IUserService userService = new UserService(userRepo,email,sms);
 
-        INotificationService notificationService =
-            new NotificationService(notificationRepo, email, sms);
+        INotificationService notificationService = new NotificationService(notificationRepo, email, sms);
 
         AdminRole adminRole = new AdminRole(userService, notificationService);
         UserRole userRole = new UserRole(userService,notificationService);
