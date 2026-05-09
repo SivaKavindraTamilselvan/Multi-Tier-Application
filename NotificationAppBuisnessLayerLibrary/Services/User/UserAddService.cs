@@ -1,16 +1,12 @@
 using NotificationAppModelLibrary;
-using NotificationAppBuisnessLayerLibrary.Validation;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayerLibrary.Delegates;
-using NotificationAppBuisnessLayer.Inputs;
-
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
 public partial class UserService : IUserService
 {
     AddUserOperation? addUserOperation;
-    InputsCheck inputsCheck = new InputsCheck();
     private User? createdUser;
     public User? AddUser()
     {

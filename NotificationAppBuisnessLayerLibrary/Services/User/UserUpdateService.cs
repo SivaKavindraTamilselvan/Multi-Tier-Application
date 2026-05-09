@@ -9,7 +9,6 @@ namespace NotificationAppBuisnessLayerLibrary.Services;
 public partial class UserService : IUserService
 {
     UpdateUserOperation? updateUserOperation;
-
     private User updateUser=null!;
 
     public void UpdateDelegate()

@@ -33,7 +33,7 @@ public abstract class NotificationSenderService : INotificationSender
 
         notificationOperation += ValidationOfMessage;
         notificationOperation += SendNotification;
-        notificationOperation += Log;
+        notificationOperation += SaveNotification;
         notificationOperation += LogNotification;
 
         notificationOperation?.Invoke();
@@ -43,7 +43,7 @@ public abstract class NotificationSenderService : INotificationSender
         MessageValidation.ValidateMessage(message, service);
     }
 
-    public void Log()
+    public void SaveNotification()
     {
         Notification notification = new Notification
         {

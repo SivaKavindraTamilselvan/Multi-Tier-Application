@@ -13,7 +13,7 @@ public abstract class AbstractRepository<K,T> : IRepository<K,T> where T : class
 
     public List<T> GetAll()
     {
-        return items.Select(x=>x.Value).ToList();
+        return items.Values.ToList();
     }
 
     public T? Update(K key,T item)
