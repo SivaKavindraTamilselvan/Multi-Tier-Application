@@ -1,6 +1,3 @@
-using NotificationAppBuisnessLayerLibrary.Interfaces;
-using NotificationAppModelLibrary;
-
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
 public partial class SMSService : NotificationSenderService
@@ -8,9 +5,10 @@ public partial class SMSService : NotificationSenderService
     //log the information in console
     public override void LogNotification()
     {
+        string CompanyPhoneNumber = Environment.GetEnvironmentVariable("CompanyPhoneNumber ") ?? "";
         Console.WriteLine("---------------------------------------------");
         Console.WriteLine("Logging the Information - SMS Service");
-        Console.WriteLine($"The SMS Services\nFrom : sivakavindra@gmail.com\nTo : {user.Email}\nStatus : {status}\nDate & Time : {dateTime}\nMessage : {message}");
+        Console.WriteLine($"The SMS Services\nFrom : {CompanyPhoneNumber}\nTo : {user.PhoneNumber}\nStatus : {status}\nDate & Time : {dateTime}\nMessage : {message}");
         Console.WriteLine("---------------------------------------------");
     }
 }
