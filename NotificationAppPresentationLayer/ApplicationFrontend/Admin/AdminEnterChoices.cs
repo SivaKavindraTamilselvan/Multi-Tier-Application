@@ -1,8 +1,8 @@
-namespace NotificationAppPresentationLayer.Role;
+namespace NotificationAppPresentationLayer.Application;
 
-public class AdminRoleConsole
+public class AdminChoices
 {
-    public void AdminConsoleChoice()
+    public void DisplayAdminChoices()
     {
         Console.WriteLine("------------------------------------------------");
         Console.WriteLine("Enter 1 To Add User");

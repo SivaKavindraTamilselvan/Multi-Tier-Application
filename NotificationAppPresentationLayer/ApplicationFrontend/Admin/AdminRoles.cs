@@ -1,14 +1,14 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
 
-namespace NotificationAppPresentationLayer.Role;
+namespace NotificationAppPresentationLayer.Application;
 
 public class AdminRole
 {
     private readonly IUserService userService;
     private readonly INotificationService notificationService;
     private InputsCheck inputCheck = new InputsCheck();
-    private AdminRoleConsole console = new AdminRoleConsole();
+    private AdminChoices console = new AdminChoices();
     public AdminRole(IUserService userService, INotificationService notificationService)
     {
         this.userService = userService;
@@ -18,7 +18,7 @@ public class AdminRole
     {
         while (true)
         {
-            console.AdminConsoleChoice();
+            console.DisplayAdminChoices();
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 14 || typechoice < 0)
             {

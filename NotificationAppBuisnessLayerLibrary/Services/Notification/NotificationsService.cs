@@ -68,4 +68,13 @@ public class NotificationService : INotificationService
         notification.service=service;
         notificationRepo.Create(notification);
     }
+
+    public List<Notification> GetNotificationsByUserIdAndService(int userId,string service)
+    {
+        return notificationRepo.GetNotificationsByUserIdAndService(userId,service);
+    }
+    public List<Notification> GetNotificationsByService(string service)
+    {
+        return notificationRepo.GetNotificationsByService(service);
+    }
 }
