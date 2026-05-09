@@ -31,18 +31,36 @@ public class UserRole
                     case 1:
                         {
                             int userid = inputCheck.UserIdInputs();
+                            var user = userService.GetUserById(userid);
+                            if (user == null)
+                            {
+                                Console.WriteLine("User not found");
+                                break;
+                            }
                             notificationService.GetNotificationsByUserIdAndService(userid,"Email");
                             break;
                         }
                     case 2:
                         {
                             int userid = inputCheck.UserIdInputs();
+                            var user = userService.GetUserById(userid);
+                            if (user == null)
+                            {
+                                Console.WriteLine("User not found");
+                                break;
+                            }
                             notificationService.GetNotificationsByUserIdAndService(userid,"SMS");
                             break;
                         }
                     case 3:
                         {
                             int userid = inputCheck.UserIdInputs();
+                            var user = userService.GetUserById(userid);
+                            if (user == null)
+                            {
+                                Console.WriteLine("User not found");
+                                break;
+                            }
                             notificationService.GetNotificationsByUserId(userid);
                             break;
                         }
