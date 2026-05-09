@@ -3,13 +3,13 @@ using NotificationAppBuisnessLayer.Inputs;
 
 namespace NotificationAppPresentationLayer.Application;
 
-public partial class AdminNotificationRole
+public partial class AdminSendNotificationRole
 {
-    public void AdminNotificationRoles()
+    public void AdminSendNotificationRoles()
     {
         while (true)
         {
-            //console.DisplayAdminChoices();
+            adminChoices.DisplayAdminDeliverMessageChoices();
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 2 || typechoice < 0)
             {

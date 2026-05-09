@@ -9,6 +9,7 @@ public partial class AdminDeleteRole
     {
         while (true)
         {
+            adminChoices.DisplayDeleteAdminChoices();
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
             {

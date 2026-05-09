@@ -46,11 +46,4 @@ public class AdminChoices
         Console.WriteLine("Enter 3 To Delete The User By PhoneNumber");
         Console.WriteLine("------------------------------------------------");
     }
-    public void DisplayAddAndUpdateAdminChoices()
-    {
-        Console.WriteLine("------------------------------------------------");
-        Console.WriteLine("Enter 1 To Add User");
-        Console.WriteLine("Enter 2 To Update User By Id");
-        Console.WriteLine("------------------------------------------------");
-    }
 }

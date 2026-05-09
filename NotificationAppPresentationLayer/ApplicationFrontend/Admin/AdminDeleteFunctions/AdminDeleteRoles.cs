@@ -7,7 +7,7 @@ public partial class AdminDeleteRole
 {
     private readonly IUserService userService;
     private InputsCheck inputCheck = new InputsCheck();
-    private AdminChoices console = new AdminChoices();
+    private AdminChoices adminChoices= new AdminChoices();
     public AdminDeleteRole(IUserService userService)
     {
         this.userService = userService;

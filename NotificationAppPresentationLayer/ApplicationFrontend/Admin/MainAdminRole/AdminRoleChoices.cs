@@ -1,12 +1,17 @@
+using NotificationAppBuisnessLayerLibrary.Interfaces;
+using NotificationAppBuisnessLayer.Inputs;
+
 namespace NotificationAppPresentationLayer.Application;
+
 public partial class AdminRole
 {
     public void AdminRoles()
     {
         while (true)
         {
+            adminChoices.DisplayAdminChoices();
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 5 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 6 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -16,8 +21,7 @@ public partial class AdminRole
                 {
                     case 1:
                         {
-                            var user = userService.AddUser();
-                            if (user == null) Console.WriteLine("User not added");
+                            AddUser();
                             break;
                         }
                     case 2:
@@ -27,15 +31,7 @@ public partial class AdminRole
                         }
                     case 3:
                         {
-                            int userid = inputCheck.UserIdInputs();
-                            var user = userService.UpdateUserById(userid);
-                            //display if no user with the id found
-                            if (user == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            Console.WriteLine(user);
+                            UpdateUser();
                             break;
                         }
                     case 4:
@@ -45,7 +41,12 @@ public partial class AdminRole
                         }
                     case 5:
                         {
-                            adminNotificationRole.AdminNotificationRoles();
+                            adminSendNotificationRole.AdminSendNotificationRoles();
+                            break;
+                        }
+                    case 6:
+                        {
+                            adminGetNotificationRole.AdminGetNotificationRoles();
                             break;
                         }
                     case 0:

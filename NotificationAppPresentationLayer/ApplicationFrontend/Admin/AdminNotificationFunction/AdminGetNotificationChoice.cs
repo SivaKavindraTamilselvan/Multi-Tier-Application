@@ -3,13 +3,13 @@ using NotificationAppBuisnessLayer.Inputs;
 
 namespace NotificationAppPresentationLayer.Application;
 
-public partial class AdminGetRole
+public partial class AdminGetNotificationRole
 {
-    public void AdminGetRoles()
+    public void AdminGetNotificationRoles()
     {
         while (true)
         {
-            adminChoices.DisplayGetAdminChoices();
+            adminChoices.DisplayAdminNotificationChoices();
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 14 || typechoice < 0)
             {
@@ -19,24 +19,19 @@ public partial class AdminGetRole
             {
                 switch (typechoice)
                 {
-                    case 1:
+                    case 12:
                         {
-                            GetUserById();
+                            GetNotificationsById();
                             break;
                         }
-                    case 2:
+                    case 13:
                         {
-                            GetUserByEmail();
+                            GetNotificationsByUserId();
                             break;
                         }
-                    case 3:
+                    case 14:
                         {
-                           GetUserByPhoneNumber();
-                            break;
-                        }
-                    case 4:
-                        {
-                            GetAll();
+                            GetAllNotification();
                             break;
                         }
                     case 0:

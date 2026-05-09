@@ -3,7 +3,7 @@ using NotificationAppBuisnessLayer.Inputs;
 
 namespace NotificationAppPresentationLayer.Application;
 
-public partial class AdminNotificationRole
+public partial class AdminSendNotificationRole
 {
     public void DeliverNotificationByEmail()
     {
