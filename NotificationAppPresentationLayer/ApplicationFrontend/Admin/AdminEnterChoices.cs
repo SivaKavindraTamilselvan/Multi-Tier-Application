@@ -10,6 +10,7 @@ public class AdminChoices
         Console.WriteLine("Enter 3 To Update The User");
         Console.WriteLine("Enter 4 To Delete The User");
         Console.WriteLine("Enter 5 To Deliver The Notification User");
+        Console.WriteLine("Enter 6 To Get The Notification");
         Console.WriteLine("Enter 0 To Quit The Loop");
         Console.WriteLine("------------------------------------------------");
     }

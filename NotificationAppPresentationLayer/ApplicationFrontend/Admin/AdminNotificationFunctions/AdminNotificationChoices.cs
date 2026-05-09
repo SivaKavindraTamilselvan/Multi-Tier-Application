@@ -5,13 +5,13 @@ namespace NotificationAppPresentationLayer.Application;
 
 public partial class AdminNotificationRole
 {
-        public void AdminNotificationRoles()
+    public void AdminNotificationRoles()
     {
         while (true)
         {
             //console.DisplayAdminChoices();
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 14 || typechoice < 0)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 2 || typechoice < 0)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
@@ -19,31 +19,14 @@ public partial class AdminNotificationRole
             {
                 switch (typechoice)
                 {
-                    case 2:
+                    case 1:
                         {
-                            string email = inputCheck.EmailInputs();
-                            var user = userService.GetUserByEmail(email);
-                            if (user == null)
-                            {
-                                Console.WriteLine($"No User Found With Email Address {email}");
-                                break;
-                            }
-                            string message = inputCheck.MessageInputs(email, "Email");
-                            notificationService.SendNotificationToUsers(message, user, "Email");
+                            DeliverNotificationByEmail();
                             break;
                         }
-                    case 3:
+                    case 2:
                         {
-
-                            string phone = inputCheck.PhoneNumberInputs();
-                            var user = userService.GetUserByPhoneNumber(phone);
-                            if (user == null)
-                            {
-                                Console.WriteLine($"No User Found With Phone Number {phone}");
-                                break;
-                            }
-                            string message = inputCheck.MessageInputs(phone, "SMS");
-                            notificationService.SendNotificationToUsers(message, user, "SMS");
+                            DeliverNotificationByPhoneNumber();
                             break;
                         }
                     case 0:
