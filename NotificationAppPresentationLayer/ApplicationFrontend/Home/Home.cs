@@ -18,6 +18,7 @@ public class HomePage
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("Enter 1 For Company");
             Console.WriteLine("Enter 2 For User");
+            Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
             int typechoice;
             while (!int.TryParse(Console.ReadLine(), out typechoice) && typechoice != 1 && typechoice != 2)
@@ -31,12 +32,12 @@ public class HomePage
                     case 1:
                         {
                             adminRole.AdminRoles();
-                            return;
+                            break;
                         }
                     case 2:
                         {
                             userRole.UserRoles();
-                            return;
+                            break;
                         }
                     case 0:
                         {

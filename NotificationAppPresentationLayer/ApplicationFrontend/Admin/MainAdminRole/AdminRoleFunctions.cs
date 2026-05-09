@@ -23,6 +23,7 @@ public partial class AdminRole
         {
             throw new UserNotFoundException();
         }
+        Console.WriteLine("Updated User Details");
         Console.WriteLine(user);
     }
 }

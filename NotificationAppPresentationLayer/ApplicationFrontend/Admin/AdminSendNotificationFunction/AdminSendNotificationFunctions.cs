@@ -6,6 +6,7 @@ public partial class AdminSendNotificationRole
 {
     public void DeliverNotificationByEmail()
     {
+        Console.WriteLine("Enter The Email To Send the Message");
         string email = inputCheck.EmailInputs();
         var user = userService.GetUserByEmail(email);
         if (user == null)
@@ -17,6 +18,7 @@ public partial class AdminSendNotificationRole
     }
     public void DeliverNotificationByPhoneNumber()
     {
+        Console.WriteLine("Enter The Phone Number To Send the Message");
         string phone = inputCheck.PhoneNumberInputs();
         var user = userService.GetUserByPhoneNumber(phone);
         if (user == null)

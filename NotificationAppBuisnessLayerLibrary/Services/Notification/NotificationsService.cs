@@ -19,13 +19,13 @@ public partial class NotificationService : INotificationService
     {
         if (service == "Email")
         {
-            email.Send(message, user, service);
             Console.WriteLine("Wait Untill the Email Notification is Sent");
+            email.Send(message, user, service);
         }
         else if (service == "SMS")
         {
-            sms.Send(message, user, service);
             Console.WriteLine("Wait Untill the SMS Notification is Sent");
+            sms.Send(message, user, service);
         }
         else
         {

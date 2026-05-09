@@ -1,5 +1,6 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppPresentationLayer.Application;
 
@@ -11,8 +12,7 @@ public partial class UserRole
         var user = userService.GetUserById(userid);
         if (user == null)
         {
-            Console.WriteLine("User not found");
-            return;
+            throw new UserNotFoundException();
         }
         notificationService.GetNotificationsByUserId(userid);
     }
@@ -22,8 +22,7 @@ public partial class UserRole
         var user = userService.GetUserById(userid);
         if (user == null)
         {
-            Console.WriteLine("User not found");
-            return;
+            throw new UserNotFoundException();
         }
         notificationService.GetNotificationsByUserIdAndService(userid, service);
     }
