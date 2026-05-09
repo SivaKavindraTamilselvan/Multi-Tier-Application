@@ -1,5 +1,4 @@
 using NotificationAppModelLibrary;
-using NotificationAppPresentationLayer.Role;
 
 namespace NotificationAppPresentationLayer.Application;
 public class HomePage

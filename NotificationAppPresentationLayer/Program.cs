@@ -1,5 +1,4 @@
 ﻿using NotificationAppModelLibrary;
-using NotificationAppPresentationLayer.Role;
 using DotNetEnv;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayerLibrary.Services;
