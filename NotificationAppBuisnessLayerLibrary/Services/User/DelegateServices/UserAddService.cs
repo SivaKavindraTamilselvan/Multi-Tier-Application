@@ -32,7 +32,6 @@ public partial class UserService : IUserService
 
         Console.WriteLine("Enter Your Email");
         string email = inputsCheck.EmailInputs();
-        //to avoid aldready registered email to re register
         if (GetUserByEmail(email) != null)
         {
             Console.WriteLine("Aldready Email is Registered with This Email");

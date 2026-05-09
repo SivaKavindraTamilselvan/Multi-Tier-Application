@@ -30,7 +30,7 @@ public partial class UserService : IUserService
         updateUser = GetUserById(userId);
         if (updateUser == null)
         {
-            return null;
+            throw new UserNotFoundException();
         }
         UpdateDelegate();
 

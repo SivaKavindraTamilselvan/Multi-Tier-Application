@@ -1,5 +1,6 @@
 using NotificationAppModelLibrary;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 public partial class UserService : IUserService
@@ -7,7 +8,10 @@ public partial class UserService : IUserService
     public User? GetUserByEmail(string email)
     {
         var UserList = userRepo.GetAll();
-        if(UserList == null) return null;
+        if(UserList == null)
+        {
+            throw new UserNotFoundException();
+        }
         foreach (var item in UserList)
         {
             if (item.Email == email)
@@ -20,7 +24,10 @@ public partial class UserService : IUserService
     public User? DeleteUserByEmail(string email)
     {
         var UserList = userRepo.GetAll();
-        if(UserList == null) return null;
+        if(UserList == null)
+        {
+            throw new UserNotFoundException();
+        }
         foreach (var item in UserList)
         {
             if (item.Email == email)

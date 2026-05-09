@@ -1,9 +1,7 @@
 using NotificationAppModelLibrary;
-using NotificationAppBuisnessLayerLibrary.Validation;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayerLibrary.Delegates;
 using NotificationAppModelLibrary.Exceptions;
-
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
@@ -33,7 +31,6 @@ public partial class UserService : IUserService
 
         Console.WriteLine("Enter Your Email That Needed To Be Updated");
         string email = inputsCheck.EmailInputs();
-        //email validation
         
         //to avoid aldready registered email to be entered
         if(GetUserByEmail(email) != null && updateUser.Email!=email)
