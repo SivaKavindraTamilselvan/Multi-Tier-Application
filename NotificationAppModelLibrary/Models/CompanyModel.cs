@@ -9,7 +9,7 @@ public class Company
 
     public Company()
     {
-        Name = "BusBookingApp";
+        Name = Environment.GetEnvironmentVariable("CompanyName");
         Email = Environment.GetEnvironmentVariable("CompanyEmail");
         PhoneNumber = Environment.GetEnvironmentVariable("CompanyPhoneNumber");
         Services[0] = "Email";
