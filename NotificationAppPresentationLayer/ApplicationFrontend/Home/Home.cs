@@ -21,7 +21,7 @@ public class HomePage
             Console.WriteLine("Enter 0 To Quit");
             Console.WriteLine("------------------------------------------------");
             int typechoice;
-            while (!int.TryParse(Console.ReadLine(), out typechoice) && typechoice != 1 && typechoice != 2)
+            while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice <0 || typechoice >3)
             {
                 Console.WriteLine("Enter Vaild Input");
             }
