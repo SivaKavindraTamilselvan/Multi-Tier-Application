@@ -1,5 +1,6 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppPresentationLayer.Application;
 
@@ -14,20 +15,18 @@ public partial class AdminDeleteRole
         //display if no user with the email id found
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Email Address {email}");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine(user);
     }
     public void DeleteUserById()
     {
-        int userid = inputCheck.UserIdInputs();
+        int userid = inputCheck.IdInputs();
         var user = userService.DeleteUserById(userid);
         //display if no user with the id found
         if (user == null)
         {
-            Console.WriteLine("User not found");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine(user);
     }
@@ -40,8 +39,7 @@ public partial class AdminDeleteRole
         //display if no user with the phone number found
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Phone Number {phone}");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine("Deleted User List With Phone Number");
         foreach (var item in user)

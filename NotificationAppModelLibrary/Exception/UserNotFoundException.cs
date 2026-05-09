@@ -2,7 +2,8 @@ namespace NotificationAppModelLibrary.Exceptions;
 
 public class UserNotFoundException : Exception
 {
-    public UserNotFoundException(string message) : base(message)
+    private static string message = "No User Is Found In The list";
+    public UserNotFoundException() : base(message)
     {
         
     }

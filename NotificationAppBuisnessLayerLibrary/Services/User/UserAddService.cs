@@ -6,7 +6,6 @@ namespace NotificationAppBuisnessLayerLibrary.Services;
 
 public partial class UserService : IUserService
 {
-    AddUserOperation? addUserOperation;
     private User? createdUser;
     public User? AddUser()
     {

@@ -1,5 +1,6 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppPresentationLayer.Application;
 
@@ -7,24 +8,21 @@ public partial class AdminGetNotificationRole
 {
     public void GetNotificationsById()
     {
-        int userid = inputCheck.UserIdInputs();
-
-        var notification = notificationService.GetNotificationsById(userid);
+        int notificationId = inputCheck.IdInputs();
+        var notification = notificationService.GetNotificationsById(notificationId);
         if (notification == null)
         {
-            Console.WriteLine("No notifications found");
-            return;
+            throw new NotificationNotFoundException();
         }
         Console.WriteLine(notification);
     }
     public void GetNotificationsByUserId()
     {
-        int userid = inputCheck.UserIdInputs();
+        int userid = inputCheck.IdInputs();
         var user = userService.GetUserById(userid);
         if (user == null)
         {
-            Console.WriteLine("User not found");
-            return;
+            throw new UserNotFoundException();
         }
         notificationService.GetNotificationsByUserId(userid);
     }

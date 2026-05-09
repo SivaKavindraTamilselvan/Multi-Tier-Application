@@ -2,6 +2,7 @@ using NotificationAppModelLibrary;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppDataAccessLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 
@@ -23,8 +24,7 @@ public partial class UserService : IUserService
         //if no user found in the list
         if(UserList.Count == 0)
         {
-            Console.WriteLine("No User Found");
-            return;
+            throw new UserNotFoundException();
         }
         foreach (var item in UserList)
         {

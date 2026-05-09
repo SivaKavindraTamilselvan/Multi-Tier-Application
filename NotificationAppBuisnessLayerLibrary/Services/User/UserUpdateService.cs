@@ -2,6 +2,7 @@ using NotificationAppModelLibrary;
 using NotificationAppBuisnessLayerLibrary.Validation;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayerLibrary.Delegates;
+using NotificationAppModelLibrary.Exceptions;
 
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
@@ -48,7 +49,12 @@ public partial class UserService : IUserService
         updateUser.Name = name;
         updateUser.Email = email;
         updateUser.PhoneNumber = phone;
-        updateUser = userRepo.Update(updateUser.userId,updateUser);
+        var user = userRepo.Update(updateUser.userId,updateUser);
+        if(user == null)
+        {
+            throw new UserNotFoundException();
+        }
+        updateUser = user;
         Console.WriteLine("User Updated Successfully. Wait for the Email && SMS to be sent!!");
     }
 
@@ -56,7 +62,7 @@ public partial class UserService : IUserService
     {
         if(updateUser == null)
         {
-            return;
+            throw new UserNotFoundException();
         }
         string message = $"Successfully updated your account with the details\nName : {updateUser.Name}\nPhoneNumber : {updateUser.PhoneNumber}\nEmail : {updateUser.Email}\n\nThank You!";
         emailService.Send(message, updateUser,"Email");

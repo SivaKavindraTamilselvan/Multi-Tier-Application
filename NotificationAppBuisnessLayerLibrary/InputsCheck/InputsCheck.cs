@@ -65,9 +65,9 @@ public class InputsCheck
         }
     }
 
-    public int UserIdInputs()
+    public int IdInputs()
     {
-        Console.WriteLine("Enter UserId");
+        Console.WriteLine("Enter Id");
         int userid;
         while (!int.TryParse(Console.ReadLine(), out userid) || userid < 0)
         {

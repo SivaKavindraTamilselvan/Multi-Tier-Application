@@ -18,7 +18,7 @@ public abstract class NotificationSenderService : INotificationSender
     protected User user = null!;
     protected string service = "";
 
-    protected string? status;
+    protected string status = "";
     protected DateTime? dateTime;
 
     public abstract void SendNotification();

@@ -10,7 +10,7 @@ public partial class AdminGetNotificationRole
 
         adminChoices.DisplayAdminNotificationChoices();
         int typechoice;
-        while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 14 || typechoice < 0)
+        while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 3 || typechoice < 0)
         {
             Console.WriteLine("Enter Vaild Input");
         }
@@ -18,17 +18,17 @@ public partial class AdminGetNotificationRole
         {
             switch (typechoice)
             {
-                case 12:
+                case 1:
                     {
                         GetNotificationsById();
                         break;
                     }
-                case 13:
+                case 2:
                     {
                         GetNotificationsByUserId();
                         break;
                     }
-                case 14:
+                case 3:
                     {
                         GetAllNotification();
                         break;

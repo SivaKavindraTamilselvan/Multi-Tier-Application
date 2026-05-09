@@ -1,5 +1,6 @@
 using NotificationAppBuisnessLayerLibrary.Interfaces;
 using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppPresentationLayer.Application;
 
@@ -7,12 +8,11 @@ public partial class AdminGetRole
 {
     public void GetUserById()
     {
-        int userid = inputCheck.UserIdInputs();
+        int userid = inputCheck.IdInputs();
         var user = userService.GetUserById(userid);
         if (user == null)
         {
-            Console.WriteLine("User not found");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine(user);
     }
@@ -25,8 +25,7 @@ public partial class AdminGetRole
         //display if no user with the email id found
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Email Address {email}");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine(user);
     }
@@ -39,8 +38,7 @@ public partial class AdminGetRole
         //display if no user with the phone number found
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Phone Number {phone}");
-            return;
+            throw new UserNotFoundException();
         }
         Console.WriteLine(user);
     }

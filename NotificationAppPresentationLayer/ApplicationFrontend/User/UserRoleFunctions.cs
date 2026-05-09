@@ -7,7 +7,7 @@ public partial class UserRole
 {
     public void GetNotificationsByUserId()
     {
-        int userid = inputCheck.UserIdInputs();
+        int userid = inputCheck.IdInputs();
         var user = userService.GetUserById(userid);
         if (user == null)
         {
@@ -18,7 +18,7 @@ public partial class UserRole
     }
     public void GetNotificationsByUserIdAndService(string service)
     {
-        int userid = inputCheck.UserIdInputs();
+        int userid = inputCheck.IdInputs();
         var user = userService.GetUserById(userid);
         if (user == null)
         {

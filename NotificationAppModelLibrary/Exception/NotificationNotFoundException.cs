@@ -1,7 +1,8 @@
 namespace NotificationAppModelLibrary.Exceptions;
 public class NotificationNotFoundException : Exception
 {
-    public NotificationNotFoundException(string message) : base(message)
+    private static string message = "No Notification Is Found In The List";
+    public NotificationNotFoundException() : base(message)
     {
         
     }

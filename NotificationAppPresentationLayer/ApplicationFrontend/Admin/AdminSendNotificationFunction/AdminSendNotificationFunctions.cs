@@ -1,5 +1,4 @@
-using NotificationAppBuisnessLayerLibrary.Interfaces;
-using NotificationAppBuisnessLayer.Inputs;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppPresentationLayer.Application;
 
@@ -11,8 +10,7 @@ public partial class AdminSendNotificationRole
         var user = userService.GetUserByEmail(email);
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Email Address {email}");
-            return;
+            throw new UserNotFoundException();
         }
         string message = inputCheck.MessageInputs(email, "Email");
         notificationService.SendNotificationToUsers(message, user, "Email");
@@ -23,8 +21,7 @@ public partial class AdminSendNotificationRole
         var user = userService.GetUserByPhoneNumber(phone);
         if (user == null)
         {
-            Console.WriteLine($"No User Found With Phone Number {phone}");
-            return;
+            throw new UserNotFoundException();
         }
         string message = inputCheck.MessageInputs(phone, "SMS");
         notificationService.SendNotificationToUsers(message, user, "SMS");

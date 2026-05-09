@@ -10,7 +10,7 @@ public partial class AdminGetRole
 
         adminChoices.DisplayGetAdminChoices();
         int typechoice;
-        while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 14 || typechoice < 0)
+        while (!int.TryParse(Console.ReadLine(), out typechoice) || typechoice > 4 || typechoice < 0)
         {
             Console.WriteLine("Enter Vaild Input");
         }

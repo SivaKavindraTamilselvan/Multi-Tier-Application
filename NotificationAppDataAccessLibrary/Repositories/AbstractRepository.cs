@@ -8,16 +8,19 @@ public abstract class AbstractRepository<K,T> : IRepository<K,T> where T : class
 
     public T? Get(K key)
     {
+        //return null if not present
         return items.Where(x=>x.Key.Equals(key)).Select(x=>x.Value).FirstOrDefault();
     }
 
     public List<T> GetAll()
     {
+        //return empty list
         return items.Values.ToList();
     }
 
     public T? Update(K key,T item)
     {
+        //return null
         if(!items.Any(x => x.Key.Equals(key)))
         {
             return null;
@@ -29,6 +32,7 @@ public abstract class AbstractRepository<K,T> : IRepository<K,T> where T : class
 
     public T? Delete(K key)
     {
+        //return null
         if(items.TryGetValue(key, out T? item))
         {
             items.Remove(key);

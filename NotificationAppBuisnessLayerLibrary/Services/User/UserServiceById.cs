@@ -1,16 +1,27 @@
 using NotificationAppModelLibrary;
 using NotificationAppBuisnessLayerLibrary.Interfaces;
+using NotificationAppModelLibrary.Exceptions;
 
 namespace NotificationAppBuisnessLayerLibrary.Services;
 public partial class UserService : IUserService
 {
-    public User? GetUserById(int id)
+    public User GetUserById(int id)
     {
-        return userRepo.Get(id);
+        var user = userRepo.Get(id);
+        if(user == null)
+        {
+            throw new UserNotFoundException();
+        }
+        return user;
     }
     public User? DeleteUserById(int id)
     {
-        deletedUser = userRepo.Get(id);
+        var user = userRepo.Get(id);
+        if(user == null)
+        {
+            throw new UserNotFoundException();
+        }
+        deletedUser = user;
         DeleteDelegate();
         return deletedUser;
     }
