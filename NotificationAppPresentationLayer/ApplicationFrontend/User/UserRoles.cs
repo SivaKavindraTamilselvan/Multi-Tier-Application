@@ -31,37 +31,19 @@ public class UserRole
                     case 1:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationService.GetNotificationsByUserIdAndService(userid,"Email");
-                            if (notification == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            Console.WriteLine(notification);
+                            notificationService.GetNotificationsByUserIdAndService(userid,"Email");
                             break;
                         }
                     case 2:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationService.GetNotificationsByUserIdAndService(userid,"SMS");
-                            if (notification == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            Console.WriteLine(notification);
+                            notificationService.GetNotificationsByUserIdAndService(userid,"SMS");
                             break;
                         }
                     case 3:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationService.GetNotificationsByUserId(userid);
-                            if (notification == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            Console.WriteLine(notification);
+                            notificationService.GetNotificationsByUserId(userid);
                             break;
                         }
                     case 0:

@@ -9,7 +9,6 @@ public class NotificationRepository : AbstractRepository<int,Notification>,INoti
     {
         item.notificationId = ++notificationId;
         items.Add(notificationId,item);
-        Console.WriteLine("jj");
         return item;
     }
     public List<Notification> GetNotificationByUserId(int userId)

@@ -54,9 +54,17 @@ public class NotificationService : INotificationService
         return notificationRepo.Get(id);
     }
 
-    public List<Notification> GetNotificationsByUserId(int id)
+    public void GetNotificationsByUserId(int id)
     {
-        return notificationRepo.GetNotificationByUserId(id);
+        var notification = notificationRepo.GetNotificationByUserId(id);
+        if(notification.Count==0)
+        {
+            Console.WriteLine("No Notifications for user found");
+        }
+        foreach (var item in notification)
+        {
+            Console.WriteLine(item);
+        }
     }
 
     public void CreateNotification(string message,User user,string service)
@@ -69,12 +77,28 @@ public class NotificationService : INotificationService
         notificationRepo.Create(notification);
     }
 
-    public List<Notification> GetNotificationsByUserIdAndService(int userId,string service)
+    public void GetNotificationsByUserIdAndService(int userId,string service)
     {
-        return notificationRepo.GetNotificationsByUserIdAndService(userId,service);
+         var notification = notificationRepo.GetNotificationsByUserIdAndService(userId,service);
+        if(notification.Count==0)
+        {
+            Console.WriteLine("No Notifications for user found");
+        }
+        foreach (var item in notification)
+        {
+            Console.WriteLine(item);
+        }
     }
-    public List<Notification> GetNotificationsByService(string service)
+    public void GetNotificationsByService(string service)
     {
-        return notificationRepo.GetNotificationsByService(service);
+         var notification = notificationRepo.GetNotificationsByService(service);
+        if(notification.Count==0)
+        {
+            Console.WriteLine("No Notifications for user found");
+        }
+        foreach (var item in notification)
+        {
+            Console.WriteLine(item);
+        }
     }
 }

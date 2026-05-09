@@ -184,13 +184,7 @@ public class AdminRole
                     case 13:
                         {
                             int userid = inputCheck.UserIdInputs();
-                            var notification = notificationService.GetNotificationsByUserId(userid);
-                            if (notification == null)
-                            {
-                                Console.WriteLine("User not found");
-                                break;
-                            }
-                            Console.WriteLine(notification);
+                           notificationService.GetNotificationsByUserId(userid);
                             break;
                         }
                     case 14:
