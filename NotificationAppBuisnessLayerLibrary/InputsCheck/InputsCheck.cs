@@ -68,11 +68,11 @@ public class InputsCheck
     public int IdInputs()
     {
         Console.WriteLine("Enter Id");
-        int userid;
-        while (!int.TryParse(Console.ReadLine(), out userid) || userid < 0)
+        int id;
+        while (!int.TryParse(Console.ReadLine(), out id) || id < 0)
         {
             Console.WriteLine("Enter Vaild Input");
         }
-        return userid;
+        return id;
     }
 }
