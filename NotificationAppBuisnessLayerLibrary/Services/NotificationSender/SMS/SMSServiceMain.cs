@@ -8,6 +8,7 @@ public partial class SMSService : NotificationSenderService
     public SMSService(INotificationRepository repo) : base(repo)
     {
     }
+    //send the sms only by printing in the console
     public override void SendNotification()
     {
        dateTime = DateTime.Now;

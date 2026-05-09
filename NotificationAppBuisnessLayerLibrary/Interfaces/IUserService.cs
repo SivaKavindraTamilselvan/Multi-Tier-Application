@@ -1,6 +1,7 @@
 using NotificationAppModelLibrary;
 namespace NotificationAppBuisnessLayerLibrary.Interfaces;
 
+//user service interface
 public interface IUserService
 {
     public User? AddUser();

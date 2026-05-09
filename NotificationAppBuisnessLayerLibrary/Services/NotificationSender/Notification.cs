@@ -42,6 +42,8 @@ public abstract class NotificationSenderService : INotificationSender
         MessageValidation.ValidateMessage(message, service);
     }
 
+    //save the notification only after sending the notification
+    //to store even if status is not sent
     public void SaveNotification()
     {
         Notification notification = new Notification

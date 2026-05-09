@@ -24,6 +24,7 @@ public partial class EmailService : NotificationSenderService
 
             string? password = Environment.GetEnvironmentVariable("Password") ?? "";
 
+            //smtp request for sending the email
             var smtp = new SmtpClient("smtp.gmail.com", 587)
             {
                 Credentials = new NetworkCredential(from.Address, password),

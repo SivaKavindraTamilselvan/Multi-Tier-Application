@@ -15,6 +15,8 @@ public partial class NotificationService : INotificationService
         email = _email;
         sms = _sms;
     }
+
+    //send notification by checking the type of service and send
     public void SendNotificationToUsers(string message, User user, string service)
     {
         if (service == "Email")
@@ -32,6 +34,9 @@ public partial class NotificationService : INotificationService
             Console.WriteLine("No Valid Service method entered");
         }
     }
+
+    // list all the notification
+    // the notification include creation,deletion,updation
     public void PrintAllNotification()
     {
         var notificationList = notificationRepo.GetAll();

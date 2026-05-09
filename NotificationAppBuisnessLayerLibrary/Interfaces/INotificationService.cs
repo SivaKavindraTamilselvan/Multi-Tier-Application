@@ -1,6 +1,7 @@
 using NotificationAppModelLibrary;
 namespace NotificationAppBuisnessLayerLibrary.Interfaces;
 
+// notification service interface
 public interface INotificationService
 {
     public Notification? GetNotificationsById(int id);

@@ -4,14 +4,16 @@ namespace NotificationAppBuisnessLayer.Inputs;
 
 public class InputsCheck
 {
+    //email input is checked and validated
     public string EmailInputs()
     {
         string email = Console.ReadLine() ?? string.Empty;
-
+        //loop until valid entry is entered
         while(true)
         {
             try
             {
+                //call validation function
                 EmailValidation.isValidEmail(email);
                 return email;
             }
@@ -26,11 +28,12 @@ public class InputsCheck
     public string PhoneNumberInputs()
     {
         string phone = Console.ReadLine() ?? string.Empty;
-
+        //loop until valid entry is entered
         while (true)
         {
             try
             {
+                //call validation function
                 PhoneNumberValidation.isValidPhoneNumber(phone);
                 return phone;
             }
@@ -48,11 +51,12 @@ public class InputsCheck
         Console.WriteLine($"Enter Message To Send To {receiver}");
 
         string message = Console.ReadLine() ?? string.Empty;
-
+        //loop until valid entry is entered
         while (true)
         {
             try
             {
+                //call validation function
                 MessageValidation.ValidateMessage(message, service);
                 return message;
             }
@@ -69,6 +73,7 @@ public class InputsCheck
     {
         Console.WriteLine("Enter Id");
         int id;
+        //loop until valid entry is entered
         while (!int.TryParse(Console.ReadLine(), out id) || id < 0)
         {
             Console.WriteLine("Enter Vaild Input");

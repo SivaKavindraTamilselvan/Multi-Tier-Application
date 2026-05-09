@@ -9,6 +9,7 @@ public partial class UserService : IUserService
     private User? createdUser;
     public User? AddUser()
     {
+        //delegate function is added
         AddUserOperation addUserOperation = null!;
 
         addUserOperation += AddNewUser;

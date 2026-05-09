@@ -12,6 +12,7 @@ public partial class UserService : IUserService
 
     public void UpdateDelegate()
     {
+        //delegate function is added
         updateUserOperation = null;
 
         updateUserOperation += UpdateUser;
@@ -57,6 +58,7 @@ public partial class UserService : IUserService
 
     public void SendUpdateNotification()
     {
+        //to avoid notification if not updated
         if(updateUser == null)
         {
             throw new UserNotFoundException();
