@@ -3,7 +3,6 @@ namespace NotificationAppBuisnessLayerLibrary.Interfaces;
 
 public interface INotificationService
 {
-    public void CreateNotification(string message,User user,string service);
     public Notification? GetNotificationsById(int id);
     public void PrintAllNotification();
     public void GetNotificationsByUserId(int id);
