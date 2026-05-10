@@ -8,6 +8,13 @@
 4. Create Presentation Layer (Console App)
 5. Add Reference from Model - Data Acess - Buisness Layer - Presentation
 
+Note - .env file found in the presentation layer which contains
+
+- Company Name
+- Company PhoneNumber
+- Company Name
+- Email Password
+
 ## Model Library
 
 1. The Models Library will be created for
