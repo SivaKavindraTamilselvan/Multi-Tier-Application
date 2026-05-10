@@ -459,10 +459,7 @@ All the Needed object such as the service,repo are created in presentation layer
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/2e7cbcbd-72f3-4c4d-8478-d1b91cf2088d" />
 
 - email invalid entry throws exception
-
-<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/9fce8de6-dc90-42e9-9a33-65e8cacff580" />
-
-- aldready resgistered email cannot be used to register a new account
+- aldready registered email cannot be used to register a new account
 - duplication of emil not allowed
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/76d9d6d2-87a4-4233-9229-a1ec4fc1e1aa" />
@@ -480,6 +477,7 @@ All the Needed object such as the service,repo are created in presentation layer
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/8d82bc59-c103-40b0-af86-aa7f0260bebc" />
 
+- get user by email
 - email not found in the user list so throw a exception
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/1d443343-0f85-41af-b243-50b3d501d283" />
@@ -550,7 +548,7 @@ All the Needed object such as the service,repo are created in presentation layer
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/07f8b71b-e284-4334-b6da-c7d52b5fbfc3" />
 
-- check userId 1 delted
+- check userId 1 deleted
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/41a5e3de-d1c5-48b5-8613-66f0626fd5bc" />
 
@@ -592,7 +590,6 @@ All the Needed object such as the service,repo are created in presentation layer
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/84dd1238-5a95-491e-bc3c-5a40bd957337" />
 
-- user login
 - display all the notifications by user id 
 
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/d783c370-1b09-431b-aa89-e16bba39f585" />
