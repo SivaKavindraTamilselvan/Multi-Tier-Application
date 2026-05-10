@@ -19,11 +19,6 @@ public partial class AdminGetNotificationRole
     public void GetNotificationsByUserId()
     {
         int userid = inputCheck.IdInputs();
-        var user = userService.GetUserById(userid);
-        if (user == null)
-        {
-            throw new UserNotFoundException();
-        }
         notificationService.GetNotificationsByUserId(userid);
     }
     public void GetAllNotification()
