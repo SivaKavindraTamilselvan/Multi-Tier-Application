@@ -449,6 +449,8 @@ All the Needed object such as the service,repo are created in presentation layer
 - Two options one for admin and two for login
 - enter the needed options to access the functions
 
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/1ebf6bb0-9402-4fcc-bdc2-5d21c3f0165d" />
+
 <img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/6b7236dc-6759-459d-8647-0e3abc0c2765" />
 
 - user added 
