@@ -380,8 +380,7 @@ DisplayTheNotification
 - GetNotificationByUserId
 
     - userid input is validated (only number greater than 0)
-    - validate the user if user already registered or not.
-    - If not then user then throw new UserNotFoundException
+    - even if user deleted history can be printed
     - Call the notification service which implemets the INotificationService
     - Notification List or empty list is returned
     - the service is passed to repo and the data is returned
@@ -390,8 +389,7 @@ DisplayTheNotification
 - GetNotificationByUserIdAndService
 
     - userid input is validated (only number greater than 0)
-    - validate the user if user already registered or not.
-    - If not then user then throw new UserNotFoundException
+    - even if user deleted history can be printed as to maintain the record
     - Call the notification service which implemets the INotificationService
     - Notification List or empty list is returned 
     - filter done based on service type also (email and sms)
